@@ -1,0 +1,8 @@
+run
+console-quick
+run
+:q
+compile
+run
+5~5~5~5~6~6~6~6~
+run

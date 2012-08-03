@@ -1,0 +1,11 @@
+[0m[[0mdebug[0m] [0mStarting sandboxed run...[0m
+[0m[[0mdebug[0m] [0mWaiting for threads to exit or System.exit to be called.[0m
+[0m[[0mdebug[0m] [0mWaiting for thread run-main to exit[0m
+[0m[[0minfo[0m] [0mStarting scala interpreter...[0m
+[0m[[0mdebug[0m] [0m  Boot classpath: /opt/jdk1.6.0_25/jre/lib/resources.jar:/opt/jdk1.6.0_25/jre/lib/rt.jar:/opt/jdk1.6.0_25/jre/lib/sunrsasign.jar:/opt/jdk1.6.0_25/jre/lib/jsse.jar:/opt/jdk1.6.0_25/jre/lib/jce.jar:/opt/jdk1.6.0_25/jre/lib/charsets.jar:/opt/jdk1.6.0_25/jre/lib/modules/jdk.boot.jar:/opt/jdk1.6.0_25/jre/classes:/home/davor/workspace/HMTT/code/scala/project/boot/scala-2.9.1/lib/scala-library.jar[0m
+[0m[[0mdebug[0m] [0m  Classpath: /home/davor/.ivy2/cache/hr.ngs.templater/templater_2.9.1/jars/templater_2.9.1-1.7.0.jar:/home/davor/workspace/HMTT/code/scala/project/boot/scala-2.9.1/lib/scala-compiler.jar:/home/davor/workspace/HMTT/code/scala/project/boot/scala-2.9.1/lib/jansi.jar:/home/davor/workspace/HMTT/code/scala/project/boot/scala-2.9.1/lib/jline.jar[0m
+[0m[[0minfo[0m] [0m[0m
+[0m[[0mdebug[0m] [0m	Thread run-main exited.[0m
+[0m[[0mdebug[0m] [0mInterrupting remaining threads (should be all daemons).[0m
+[0m[[0mdebug[0m] [0mSandboxed run complete..[0m
+[0m[[0mdebug[0m] [0mExited with code 0[0m

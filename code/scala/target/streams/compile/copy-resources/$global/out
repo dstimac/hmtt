@@ -1,0 +1,13 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/sql,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/sql)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/playersNew.xml,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/playersNew.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/players_template.xlsx,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/players_template.xlsx)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/accessToken.xml,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/accessToken.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/players.xml,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/players.xml)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/accessToken.xml~,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/accessToken.xml~)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/sql/drop-tables.sql,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/sql/drop-tables.sql)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/sql/populate-tables.sql,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/sql/populate-tables.sql)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/sql/create-tables.sql,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/sql/create-tables.sql)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/sql/drop-tables.sql~,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/sql/drop-tables.sql~)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/sql/create-tables.sql~,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/sql/create-tables.sql~)[0m
+[0m[[0mdebug[0m] [0m	(/home/davor/workspace/HMTT/code/scala/src/main/resources/sql/populate-tables.sql~,/home/davor/workspace/HMTT/code/scala/target/scala-2.9.1/classes/sql/populate-tables.sql~)[0m
