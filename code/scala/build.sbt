@@ -27,7 +27,7 @@ externalResolvers <<= resolvers map { rs =>
 libraryDependencies ++= Seq(
   "hr.ngs.templater" %% "templater" % "1.7.0",
   "org.scribe" % "scribe" % "1.3.0",
-  "hsqldb" % "hsqldb" % "1.8.0.10", 
+  "org.hsqldb" % "hsqldb" % "2.2.8",
   "org.scalaquery" %% "scalaquery" % "0.10.0-M1",
   "com.github.scala-incubator.io" %% "scala-io-file" % "0.4.0"
 )

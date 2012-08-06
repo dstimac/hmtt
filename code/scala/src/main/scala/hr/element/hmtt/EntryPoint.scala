@@ -11,35 +11,42 @@ import hr.element.hmtt.oauth.Resources
 import hr.element.hmtt.db._
 import scalax.io.InputResource
 import hr.element.hmtt.data.web.Training
+import java.text.SimpleDateFormat
 
 object EntryPoint extends App {
 
-  val resource     = "/players.xml"
-  val newResource  = "/playersNew.xml"
-  val TemplatePath = "/players_template.xlsx";
-  val OutputPath   = "output/players.xlsx";
+  val FS = System.getProperty("file.separator")
+  val resource     = "src" + FS + "main" + FS + "resources" + FS + "players.xml"
+  val newResource  = "src" + FS + "main" + FS + "resources" + FS + "playersNew.xml"
+  val TemplatePath = "src" + FS + "main" + FS + "resources" + FS + "players_template.xlsx";
+  val OutputPath   = "output" + FS + "players.xlsx";
 
 
-  Connector.prepareDB
+//  Connector.prepareDB
+
+//  printPlayers
 
   val webResource = Tokenizzzer.getResource(Resources.players)
   val feedXML2 = XML.loadString(webResource)
   val playersNew = makeXMLfromString(feedXML2)
 
   for(p <- playersNew) {
-    SDM.insertPlayer(p)
+    SDM.updatePlayer(p)
   }
 
 //  val resource2 = Tokenizzzer.getResource(Resources.training)
 //  val feedXML = XML.loadString(resource2)
 //  val training = for{e <- (feedXML \\ "Team") } yield Training(e)
 
-  val resultSet = SDM.selectPlayer(284923815)
+  val resultSet = SDM.selectPlayerHistory(284923815)
+  val formatter = new SimpleDateFormat("dd-MM-yyyy")
   while(resultSet.next()) {
     val name = resultSet.getString("FIRSTNAME") + " " + resultSet.getString("LASTNAME")
     val wage = resultSet.getInt("SALARY")
+    val date = new java.util.Date(resultSet.getTimestamp("TIMESTAMP").getTime())
     println(name)
     println(wage)
+    println(date)
   }
 
   def makeXMLfromString(feed: Elem) = for {
@@ -82,26 +89,32 @@ object EntryPoint extends App {
 
   def printPlayers = {
 
-    val iS = this.getClass().getResourceAsStream(resource)
-    val iS2 = this.getClass().getResourceAsStream(newResource)
-    val s = scala.io.Source.fromInputStream(iS).mkString
-    val s2 = scala.io.Source.fromInputStream(iS2).mkString
-    iS.close()
-    iS2.close()
+//    val iS = this.getClass().getResourceAsStream(resource)
+//    val iS2 = this.getClass().getResourceAsStream(newResource)
 
-    val webResource = Tokenizzzer.getResource(Resources.players)
+    try  {
+      val src1 = scala.io.Source.fromFile(resource)("UTF-8")
+      val src2 = scala.io.Source.fromFile(newResource)("UTF-8")
+      val s1 = src1.mkString
+      val s2 = src2.mkString
+      src1.close()
+      src2.close()
 
-    val feedXML = XML.loadString(s2)
-    val feedXML2 = XML.loadString(webResource)
+      val webResource = Tokenizzzer.getResource(Resources.players)
+
+      val feedXML = XML.loadString(s2)
+      val feedXML2 = XML.loadString(webResource)
 
 
-    val playersOld = makeXMLfromString(feedXML)
-    val playersNew = makeXMLfromString(feedXML2)
+      val playersOld = makeXMLfromString(feedXML)
+      val playersNew = makeXMLfromString(feedXML2)
 
-    val zipped = playersNew zip playersOld
+      val zipped = playersNew zip playersOld
 
-    printReport(zipped)
-    //makeReport(playersNew)
+      printReport(zipped)
+    } catch {
+      case e: Exception => e.printStackTrace()
+    }//makeReport(playersNew)
 
 
   }

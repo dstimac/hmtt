@@ -5,6 +5,7 @@ import java.sql.PreparedStatement
 import java.sql.ResultSet
 import org.scribe.model.Token
 import scala.collection.mutable.Map
+import hr.element.hmtt.data.web.Training
 
 object SDM {
 
@@ -63,25 +64,25 @@ object SDM {
   def updatePlayer(p: Player) {
 
     val conn = Connector.getConnection
-    val sql = "UPDATE PLAYER" +
-      "SET FIRSTNAME = ?" +
-      "SET LASTNAME = ?" +
-      "SET AGE = ?" +
-      "SET AGEDAYS = ?" +
-      "SET TSI = ?" +
-      "SET FORM = ?" +
-      "SET STAMINA = ?" +
-      "SET EXPERIENCE = ?" +
-      "SET LEADERSHIP = ?" +
-      "SET SALARY = ?" +
-      "SET SPECIALITY = ?" +
-      "SET GOALKEEPING = ?" +
-      "SET PLAYMAKING = ?" +
-      "SET SCORING = ?" +
-      "SET PASSING = ?" +
-      "SET DEFENDING = ?" +
-      "SET WINGER = ?" +
-      "SET SETPIECES = ?" +
+    val sql = "UPDATE PLAYER " +
+      "SET FIRSTNAME = ?, " +
+      "LASTNAME = ?, " +
+      "AGE = ?, " +
+      "AGEDAYS = ?, " +
+      "TSI = ?, " +
+      "FORM = ?, " +
+      "STAMINA = ?, " +
+      "EXPERIENCE = ?, " +
+      "LEADERSHIP = ?, " +
+      "SALARY = ?, " +
+      "SPECIALITY = ?, " +
+      "GOALKEEPING = ?, " +
+      "PLAYMAKING = ?, " +
+      "SCORING = ?, " +
+      "PASSING = ?, " +
+      "DEFENDING = ?, " +
+      "WINGER = ?, " +
+      "SETPIECES = ? " +
       "WHERE ID = ?"
 
     val pstmt = conn.prepareStatement(sql)
@@ -116,6 +117,29 @@ object SDM {
     val conn = Connector.getConnection
     val stmt = conn.createStatement()
     val query = "SELECT * FROM PLAYER WHERE ID = " + id
+    val resultSet = stmt.executeQuery(query)
+
+    conn.close()
+    stmt.close()
+    resultSet
+  }
+
+  def selectPlayerHistory (id: Int): ResultSet = {
+    val conn = Connector.getConnection
+    val stmt = conn.createStatement()
+    val query = "SELECT * FROM PLAYERHISTORY WHERE ID = " + id
+    val resultSet = stmt.executeQuery(query)
+
+    conn.close()
+    stmt.close()
+    resultSet
+  }
+
+  def selectLastPlayerHistory (id: Int): ResultSet = {
+    val conn = Connector.getConnection
+    val stmt = conn.createStatement()
+    val query = "SELECT * FROM PLAYERHISTORY WHERE ID = " + id +
+          "ORDER BY TIMESTAMP DESC LIMIT 1"
     val resultSet = stmt.executeQuery(query)
 
     conn.close()
@@ -208,8 +232,31 @@ object SDM {
     tType
   }
 
-  def insertTraining() = {
+  def insertTraining(t: Training) = {
+    val conn = Connector.getConnection
+    val sql = "INSERT INTO TRAINING(" +
+    "TRAININGLEVEL, " +
+    "TRAININGTYPE, " +
+    "STAMINAPART, " +
+    "LASTTRAININGTYPE, " +
+    "LASTTRAININGLEVEL, " +
+    "LASTSTAMINAPART, " +
+    "TRAINERID) " +
+    "VALUES(?,?,?,?,?,?,?)"
 
+    val pstmt = conn.prepareStatement(sql)
+
+    pstmt.setInt(1, t.trainingLevel)
+    pstmt.setInt(2, t.trainingType)
+    pstmt.setInt(3, t.staminaTrainingPart)
+    pstmt.setInt(4, t.lastTrainingTrainingType)
+    pstmt.setInt(5, t.lastTrainingTrainingLevel)
+    pstmt.setInt(6, t.lastTrainingStaminaTrainingPart)
+    pstmt.setInt(7, t.trainer.trainerID)
+
+    pstmt.executeUpdate()
+    conn.close()
+    pstmt.close()
   }
 
 }

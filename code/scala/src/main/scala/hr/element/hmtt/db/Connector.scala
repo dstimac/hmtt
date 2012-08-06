@@ -9,14 +9,17 @@ import java.sql.Statement;
 
 object Connector {
 
-  val CreateTablesPath   = "src/main/resources/sql/create-tables.sql"
-  val DropTablesPath     = "src/main/resources/sql/drop-tables.sql"
-  val PopulateTablesPath = "src/main/resources/sql/populate-tables.sql"
+  val FS = System.getProperty("file.separator")
+
+  val CreateTablesPath   = "src" + FS + "main" + FS + "resources" + FS + "sql" + FS + "create-tables.sql"
+  val DropTablesPath     = "src" + FS + "main" + FS + "resources" + FS + "sql" + FS + "drop-tables.sql"
+  val PopulateTablesPath = "src" + FS + "main" + FS + "resources" + FS + "sql" + FS + "populate-tables.sql"
+  val CreateTriggersPath = "src" + FS + "main" + FS + "resources" + FS + "sql" + FS + "create-triggers.sql"
 
   def getConnection = {
     Class.forName("org.hsqldb.jdbcDriver")
-    val url = "jdbc:hsqldb:file:data/HTMTDB;shutdown=true"
-    //val url = "jdbc:hsqldb:file:data/HTMTDB"
+//    val url = "jdbc:hsqldb:file:data/HTMTDB;shutdown=true"
+    val url = "jdbc:hsqldb:file:data/HTMTDB"
 
     DriverManager.getConnection(url, "sa", "")
   }
@@ -27,12 +30,18 @@ object Connector {
         ResultSet.TYPE_SCROLL_SENSITIVE,
         ResultSet.CONCUR_READ_ONLY)
 
+    try {
     executeSqlFromFile(stmt, DropTablesPath)
     executeSqlFromFile(stmt, CreateTablesPath)
     executeSqlFromFile(stmt, PopulateTablesPath)
+    executeFullSqlFromFile(stmt, CreateTriggersPath)
+    } catch {
+      case e: Exception => e.printStackTrace
+    } finally  {
+      stmt.close()
+      conn.close()
+    }
 
-    stmt.close()
-    conn.close()
   }
 
   def executeSqlFromFile(stmt: Statement, filePath: String) = {
@@ -54,6 +63,15 @@ object Connector {
     }
 
     file.close()
+  }
+
+  def executeFullSqlFromFile(stmt: Statement, filePath: String) = {
+    val src1 = scala.io.Source.fromFile(filePath)("UTF-8")
+    val sql = src1.mkString
+    src1.close()
+
+    stmt.executeUpdate(sql)
+
   }
 
 }
