@@ -1,16 +1,16 @@
 <classpath>
-  <classpathentry output="target/scala-2.9.1/classes" path="src/main/scala" kind="src"></classpathentry>
-  <classpathentry output="target/scala-2.9.1/test-classes" path="src/test/scala" kind="src"></classpathentry>
+  <classpathentry output="target\scala-2.9.1\classes" path="src\main\scala" kind="src"></classpathentry>
+  <classpathentry output="target\scala-2.9.1\test-classes" path="src\test\scala" kind="src"></classpathentry>
   <classpathentry path="org.scala-ide.sdt.launching.SCALA_CONTAINER" kind="con"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/hr.ngs.templater/templater_2.9.1/jars/templater_2.9.1-1.7.0.jar" kind="lib"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/org.scribe/scribe/jars/scribe-1.3.0.jar" kind="lib"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/commons-codec/commons-codec/jars/commons-codec-1.4.jar" kind="lib"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/hsqldb/hsqldb/jars/hsqldb-1.8.0.10.jar" kind="lib"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/org.scalaquery/scalaquery_2.9.1/jars/scalaquery_2.9.1-0.10.0-M1.jar" kind="lib"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/com.github.scala-incubator.io/scala-io-file_2.9.1/jars/scala-io-file_2.9.1-0.4.0.jar" kind="lib"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/com.github.scala-incubator.io/scala-io-core_2.9.1/jars/scala-io-core_2.9.1-0.4.0.jar" kind="lib"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/com.github.jsuereth.scala-arm/scala-arm_2.9.1/jars/scala-arm_2.9.1-1.1.jar" kind="lib"></classpathentry>
-  <classpathentry path="/home/davor/.ivy2/cache/com.typesafe.akka/akka-actor/jars/akka-actor-2.0.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\hr.ngs.templater\templater_2.9.1\jars\templater_2.9.1-1.7.0.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\org.scribe\scribe\jars\scribe-1.3.0.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\commons-codec\commons-codec\jars\commons-codec-1.4.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\org.hsqldb\hsqldb\jars\hsqldb-2.2.8.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\org.scalaquery\scalaquery_2.9.1\jars\scalaquery_2.9.1-0.10.0-M1.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\com.github.scala-incubator.io\scala-io-file_2.9.1\jars\scala-io-file_2.9.1-0.4.0.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\com.github.scala-incubator.io\scala-io-core_2.9.1\jars\scala-io-core_2.9.1-0.4.0.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\com.github.jsuereth.scala-arm\scala-arm_2.9.1\jars\scala-arm_2.9.1-1.1.jar" kind="lib"></classpathentry>
+  <classpathentry path="C:\Users\Administrator\.ivy2\cache\com.typesafe.akka\akka-actor\jars\akka-actor-2.0.jar" kind="lib"></classpathentry>
   <classpathentry path="org.eclipse.jdt.launching.JRE_CONTAINER" kind="con"></classpathentry>
   <classpathentry path="bin" kind="output"></classpathentry>
 </classpath>

@@ -36,9 +36,8 @@ object DataLoader {
     loadTraining
   }
 
-  def extractPlayersFromXML(feed: Elem) = for {
-    e <- (feed \\ "Player")
-  } yield Player(e)
+  def extractPlayersFromXML(feed: Elem) =
+    feed \\ "Player" map Player.apply
 
   def extractTrainingFromXML(feed: Elem) = for {
     e <- (feed \ "Team")

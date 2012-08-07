@@ -259,4 +259,16 @@ object SDM {
     pstmt.close()
   }
 
+  def selectLastSkillUpdate ={
+    val conn = Connector.getConnection
+    val stmt = conn.createStatement()
+    val query = "SELECT * FROM LASTSKILLUPDATE"
+
+
+    val resultSet = stmt.executeQuery(query)
+    conn.close()
+    stmt.close()
+    resultSet
+  }
+
 }

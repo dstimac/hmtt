@@ -38,7 +38,7 @@ object EntryPoint extends App {
 //  val feedXML = XML.loadString(resource2)
 //  val training = for{e <- (feedXML \\ "Team") } yield Training(e)
 
-  val resultSet = SDM.selectPlayerHistory(284923815)
+  val resultSet = SDM.selectPlayerHistory(319335797)
   val formatter = new SimpleDateFormat("dd-MM-yyyy")
   while(resultSet.next()) {
     val name = resultSet.getString("FIRSTNAME") + " " + resultSet.getString("LASTNAME")
@@ -48,6 +48,14 @@ object EntryPoint extends App {
     println(wage)
     println(date)
   }
+//
+//  val resultSet2 = SDM.selectLastSkillUpdate
+//  while(resultSet2.next()) {
+//    val id = resultSet.getInt("PLAYERID")
+//    val timestamp = resultSet.getTimestamp("GOALKEEPING")
+//    println(id + "  " + timestamp)
+//  }
+
 
   def makeXMLfromString(feed: Elem) = for {
     e <- (feed \\ "Player")
