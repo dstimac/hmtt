@@ -110,7 +110,6 @@ object SDM {
     pstmt.setInt(18, p.setPiecesSkill.level)
 
     val a = pstmt.executeUpdate()
-    println(a + " :" + pstmt.toString)
     conn.close()
     pstmt.close()
   }

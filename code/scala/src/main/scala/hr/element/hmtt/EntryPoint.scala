@@ -22,7 +22,7 @@ object EntryPoint extends App {
   val OutputPath   = "output" + FS + "players.xlsx";
 
 
-//  Connector.prepareDB
+  Connector.prepareDB
 
 //  printPlayers
 
@@ -31,7 +31,7 @@ object EntryPoint extends App {
   val playersNew = makeXMLfromString(feedXML2)
 
   for(p <- playersNew) {
-    SDM.updatePlayer(p)
+    SDM.insertPlayer(p)
   }
 
 //  val resource2 = Tokenizzzer.getResource(Resources.training)
