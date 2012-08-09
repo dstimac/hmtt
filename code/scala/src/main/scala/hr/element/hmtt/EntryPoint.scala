@@ -37,17 +37,17 @@ object EntryPoint extends App {
 //  val resource2 = Tokenizzzer.getResource(Resources.training)
 //  val feedXML = XML.loadString(resource2)
 //  val training = for{e <- (feedXML \\ "Team") } yield Training(e)
-
-  val resultSet = SDM.selectPlayerHistory(319335797)
-  val formatter = new SimpleDateFormat("dd-MM-yyyy")
-  while(resultSet.next()) {
-    val name = resultSet.getString("FIRSTNAME") + " " + resultSet.getString("LASTNAME")
-    val wage = resultSet.getInt("SALARY")
-    val date = new java.util.Date(resultSet.getTimestamp("TIMESTAMP").getTime())
-    println(name)
-    println(wage)
-    println(date)
-  }
+//
+//  val resultSet = SDM.selectPlayerHistory(319335797)
+//  val formatter = new SimpleDateFormat("dd-MM-yyyy")
+//  while(resultSet.next()) {
+//    val name = resultSet.getString("FIRSTNAME") + " " + resultSet.getString("LASTNAME")
+//    val wage = resultSet.getInt("SALARY")
+//    val date = new java.util.Date(resultSet.getTimestamp("TIMESTAMP").getTime())
+//    println(name)
+//    println(wage)
+//    println(date)
+//  }
 //
 //  val resultSet2 = SDM.selectLastSkillUpdate
 //  while(resultSet2.next()) {

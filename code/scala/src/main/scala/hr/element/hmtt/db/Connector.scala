@@ -18,8 +18,9 @@ object Connector {
 
   def getConnection = {
     Class.forName("org.hsqldb.jdbcDriver")
-//    val url = "jdbc:hsqldb:file:data/HTMTDB;shutdown=true"
-    val url = "jdbc:hsqldb:file:data/HTMTDB"
+    val url = "jdbc:hsqldb:file:data/HTMTDB;shutdown=true;write_delay=false"
+//    val url = "jdbc:hsqldb:file:data/HTMTDB"
+//    val url = "jdbc:hsqldb:file:data/HTMTDB;write_delay=false;"
 
     DriverManager.getConnection(url, "sa", "")
   }

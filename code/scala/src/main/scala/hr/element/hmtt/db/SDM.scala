@@ -56,7 +56,8 @@ object SDM {
     pstmt.setInt(18, p.wingerSkill.level)
     pstmt.setInt(19, p.setPiecesSkill.level)
 
-    pstmt.executeUpdate()
+    val a = pstmt.executeUpdate()
+
     conn.close()
     pstmt.close()
   }
@@ -87,6 +88,7 @@ object SDM {
 
     val pstmt = conn.prepareStatement(sql)
 
+
     pstmt.setInt(19, p.playerID)
     pstmt.setString(1, p.firstName)
     pstmt.setString(2, p.lastName)
@@ -107,7 +109,8 @@ object SDM {
     pstmt.setInt(17, p.wingerSkill.level)
     pstmt.setInt(18, p.setPiecesSkill.level)
 
-    pstmt.executeUpdate()
+    val a = pstmt.executeUpdate()
+    println(a + " :" + pstmt.toString)
     conn.close()
     pstmt.close()
   }
