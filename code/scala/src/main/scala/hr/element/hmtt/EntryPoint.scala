@@ -12,6 +12,7 @@ import hr.element.hmtt.db._
 import scalax.io.InputResource
 import hr.element.hmtt.data.web.Training
 import java.text.SimpleDateFormat
+import hr.element.hmtt.data.web.DataLoader
 
 object EntryPoint extends App {
 
@@ -22,17 +23,9 @@ object EntryPoint extends App {
   val OutputPath   = "output" + FS + "players.xlsx";
 
 
-  Connector.prepareDB
+//  Connector.prepareDB
 
-//  printPlayers
-
-  val webResource = Tokenizzzer.getResource(Resources.players)
-  val feedXML2 = XML.loadString(webResource)
-  val playersNew = makeXMLfromString(feedXML2)
-
-  for(p <- playersNew) {
-    SDM.insertPlayer(p)
-  }
+  DataLoader.batchLoad
 
 //  val resource2 = Tokenizzzer.getResource(Resources.training)
 //  val feedXML = XML.loadString(resource2)
