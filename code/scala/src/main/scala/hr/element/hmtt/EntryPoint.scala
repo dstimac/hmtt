@@ -13,6 +13,7 @@ import scalax.io.InputResource
 import hr.element.hmtt.data.web.Training
 import java.text.SimpleDateFormat
 import hr.element.hmtt.data.web.DataLoader
+import hr.element.hmtt.skillcalc.SkillCalculator
 
 object EntryPoint extends App {
 
@@ -24,8 +25,12 @@ object EntryPoint extends App {
 
 
 //  Connector.prepareDB
+//
+//  DataLoader.batchLoad
 
-  DataLoader.batchLoad
+  println(SkillCalculator.calcTrainingLenght(18,10,"Playmaking"))
+
+
 
 //  val resource2 = Tokenizzzer.getResource(Resources.training)
 //  val feedXML = XML.loadString(resource2)

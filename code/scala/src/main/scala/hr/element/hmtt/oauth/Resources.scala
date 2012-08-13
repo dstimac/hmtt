@@ -10,4 +10,6 @@ object Resources {
   val training =
     path + "?file=training&version=1.9&actionType=view"
 
+  val team = path + "?file=club&version=1.2"
+
 }

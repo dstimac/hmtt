@@ -8,12 +8,23 @@ class TrainerData(
 }
 
 object TrainerData {
+
+
   def apply(elem: NodeSeq): TrainerData = {
+    def s(tag: String) = (elem \ tag).text
+    def i(tag: String) = s(tag).toInt
+    def tr(tag: String) = {
+      if (s(tag) == "") {
+        -1
+      }
+      else {
+        s(tag).toInt
+      }
+    }
+
     new TrainerData(
-//    trainerType = (elem \ "TrainerType").text.toInt,
-//    trainerSkill = (elem \ "TrainerSkill").text.toInt
-      trainerType = -1,
-      trainerSkill = -1
+    trainerType  = tr("TrainerType"),
+    trainerSkill = tr("TrainerSkill")
     )
   }
 }

@@ -15,7 +15,8 @@ object DataLoader {
     val players = extractPlayersFromXML(feedXML)
 
     for(p <- players) {
-      SDM.updatePlayer(p)
+      SDM.insertPlayer(p)
+      if(p.trainerData.trainerSkill != -1) SDM.insertTrainerInfo(p)
     }
   }
 
@@ -31,16 +32,27 @@ object DataLoader {
 
   }
 
+  def loadTeam {
+
+    val webResurce = Tokenizzzer.getResource(Resources.team)
+    val feedXML = XML.loadString(webResurce)
+    val team = extractTeamFromXML(feedXML)
+
+    for(t <- team) {
+      SDM.insertTeam(t)
+    }
+  }
+
   def batchLoad {
     loadPlayers
     loadTraining
+    loadTeam
   }
 
-  def extractPlayersFromXML(feed: Elem) =
-    feed \\ "Player" map Player.apply
+  def extractPlayersFromXML(feed: Elem) = feed \\ "Player" map Player.apply
 
-  def extractTrainingFromXML(feed: Elem) = for {
-    e <- (feed \ "Team")
-  } yield Training(e)
+  def extractTrainingFromXML(feed: Elem) = feed \ "Team" map Training.apply
+
+  def extractTeamFromXML(feed: Elem) = feed \ "Team" map Team.apply
 
 }
