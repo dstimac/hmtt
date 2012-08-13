@@ -190,37 +190,31 @@ object SDM {
   }
 
   def selectBaseTrainingLenght = {
-    val conn = Connector.getConnection
-    val stmt = conn.createStatement()
-    val query = "SELECT * FROM BASETRAININGLENGHT"
-    val map = Map.empty[String, Double]
-
-    val resultSet = stmt.executeQuery(query)
-
-    while(resultSet.next()) {
-      map.put(resultSet.getString("TRAININGTYPE"), resultSet.getDouble("TRAININGLENGTH"))
-    }
-
-    conn.close()
-    stmt.close()
-    map
+    query(
+      "SELECT * FROM BASETRAININGLENGHT"
+      , { rs =>
+        val mapa = Map.empty[String, Double]
+        do {
+          mapa(rs.getString("TRAININGTYPE")) = rs.getDouble("TRAININGLENGTH")
+        } while(rs.next)
+          mapa
+        }
+      )
   }
 
   def selectNextSkillFactor = {
-    val conn = Connector.getConnection
-    val stmt = conn.createStatement()
-    val query = "SELECT * FROM NEXTSKILLFACTOR"
-    val map = Map.empty[Int, Double]
+    query(
+      "SELECT * FROM NEXTSKILLFACTOR"
+    , { rs=>
+        val mapa = Map.empty[Int, Double]
 
-    val resultSet = stmt.executeQuery(query)
+        do{
+          mapa(rs.getInt("SKILL")) = rs.getDouble("FACTOR")
+        } while(rs.next)
 
-    while(resultSet.next()) {
-      map.put(resultSet.getInt("SKILL"), resultSet.getDouble("FACTOR"))
-    }
-
-    conn.close()
-    stmt.close()
-    map
+        mapa
+      }
+    )
   }
 
   def selectTrainingType(id: Int) = {

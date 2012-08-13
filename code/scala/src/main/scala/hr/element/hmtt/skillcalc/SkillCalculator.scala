@@ -22,8 +22,8 @@ object SkillCalculator {
   def calcBaseAgeFactor(age: Int) = scala.math.pow(1+variable1, age - 17)
 
   def calcTrainingLenght(age: Int, skillLevel: Int, tType: String) = {
-    val factor = NextSkillFactor.get(skillLevel).get * calcBaseAgeFactor(age) *
-       BaseTrainingLength.get(tType).get * factor1 * factor2 * factor3 *
+    val factor = NextSkillFactor(skillLevel) * calcBaseAgeFactor(age) *
+       BaseTrainingLength(tType) * factor1 * factor2 * factor3 *
        1/factor4
      factor
   }
