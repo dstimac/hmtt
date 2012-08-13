@@ -12,7 +12,7 @@ object SkillCalculator {
   lazy val factor3 = 100.0/TrainingIntensity
   lazy val factor4 = 1 - StaminaTrainingShare/100.0
 
-  lazy val AssistantTrainers = SDM.selectAssistantTrainersFromTeam
+  lazy val AssistantTrainers = SDM.selectAssistantTrainers
   lazy val TrainerSkill = min(SDM.selectTrainerLevel, 7.5)
   lazy val BaseTrainingLength = SDM.selectBaseTrainingLenght
   lazy val NextSkillFactor = SDM.selectNextSkillFactor

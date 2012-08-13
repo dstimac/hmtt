@@ -224,20 +224,10 @@ object SDM {
   }
 
   def selectTrainingType(id: Int) = {
-    val conn = Connector.getConnection
-    val stmt = conn.createStatement()
-    val query = "SELECT NAME FROM TRAININGTYPE WHERE ID = " + id
-    var tType: String = ""
-
-    val resultSet = stmt.executeQuery(query)
-    while(resultSet.next()) {
-      tType = resultSet.getString("NAME")
-    }
-//    val tType = resultSet.getString("NAME")
-
-    conn.close()
-    stmt.close()
-    tType
+    query(
+        "SELECT NAME FROM TRAININGTYPE WHERE ID = " + id
+        , _.getString("NAME")
+    )
   }
 
   def insertTraining(t: Training) = {
@@ -301,17 +291,12 @@ object SDM {
   }
 
   def selectTrainerLevel: Int = {
-    val conn = Connector.getConnection
-    val stmt = conn.createStatement()
-    val query = "SELECT SKILL FROM TRAINERINFO, TRAINING " +
+    query(
+        "SELECT SKILL FROM TRAINERINFO, TRAINING " +
         "WHERE " +
         "TRAINERINFO.TRAINERID = TRAINING.TRAINERID"
-
-    val resultSet = stmt.executeQuery(query)
-    resultSet.next()
-    conn.close()
-    stmt.close()
-    resultSet.getInt("SKILL")
+        , _.getInt("SKILL")
+    )
   }
 
   def insertTeam(t: Team) {
@@ -355,57 +340,25 @@ object SDM {
     res
   }
 
-  def selectAssistantTrainersFromTeam2: Int = {
+  def selectAssistantTrainers: Int = {
     query(
       "SELECT ASSISTANTTRAINERS FROM TEAM"
     , _.getInt("ASSISTANTTRAINERS")
     )
   }
 
-  def selectAssistantTrainersFromTeam: Int = {
-
-    val conn = Connector.getConnection
-    val stmt = conn.createStatement()
-    val query = "SELECT ASSISTANTTRAINERS FROM TEAM"
-    var res = -1
-
-    val resultSet = stmt.executeQuery(query)
-    while(resultSet.next()) {
-      res = resultSet.getInt("ASSISTANTTRAINERS")
-    }
-//    val res = resultSet.getInt("ASSISTANTTRAINERS")
-    conn.close()
-    stmt.close()
-    res
-
-  }
 
   def selectTrainingIntensity: Int = {
-
-    val conn = Connector.getConnection
-    val stmt = conn.createStatement()
-    val query = "SELECT TRAININGLEVEL FROM TRAINING"
-
-    val resultSet = stmt.executeQuery(query)
-    resultSet.next()
-    val res = resultSet.getInt("TRAININGLEVEL")
-    conn.close()
-    stmt.close()
-    res
+    query(
+      "SELECT TRAININGLEVEL FROM TRAINING"
+      ,_.getInt("TRAININGLEVEL")
+    )
   }
 
   def selectStaminaTrainingShare: Int = {
-
-    val conn = Connector.getConnection
-    val stmt = conn.createStatement()
-    val query = "SELECT STAMINAPART FROM TRAINING"
-
-    val resultSet = stmt.executeQuery(query)
-    resultSet.next()
-    val res = resultSet.getInt("STAMINAPART")
-    conn.close()
-    stmt.close()
-    res
-
+      query(
+        "SELECT STAMINAPART FROM TRAINING"
+        , _.getInt("STAMINAPART")
+      )
   }
 }
