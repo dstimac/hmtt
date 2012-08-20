@@ -35,12 +35,20 @@ object Training {
   def apply(elem: Node): Training = {
     def s(tag: String) = (elem \ tag).text
     def i(tag: String) = s(tag).toInt
+    def tr(tag: String) = {
+      if (s(tag) == "") {
+        -1
+      }
+      else {
+        s(tag).toInt
+      }
+    }
 
     new Training(
         teamID                          = i("TeamID"),
         teamName                        = s("TeamName"),
         trainingLevel                   = i("TrainingLevel"),
-        newTrainingLevel                = i("NewTrainingLevel"),
+        newTrainingLevel                = tr("NewTrainingLevel"),
         trainingType                    = i("TrainingType"),
         staminaTrainingPart             = i("StaminaTrainingPart"),
         lastTrainingTrainingType        = i("LastTrainingTrainingType"),
